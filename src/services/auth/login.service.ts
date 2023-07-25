@@ -6,7 +6,6 @@ import { userRepository } from "../../database/repositories/user.repository";
 export async function longinService(data : {email : string ; password : string}){
     try{
         const user = await userRepository.findUserByEmail(data.email)
-        console.log(user)
 
         if(!user){
             return{
@@ -27,13 +26,12 @@ export async function longinService(data : {email : string ; password : string})
         const payload = {
             name : user.name,
             email : user.email,
-            id : user.id
+            id : user._id
         }
         const options = {
             expiresIn : "1h",
         }
         const secretKey = process.env.SECRET_KEY as string
-        console.log(secretKey)
 
         const token = jwt.sign(payload, secretKey, options)
 
