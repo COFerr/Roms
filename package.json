@@ -24,7 +24,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest .",
-    "start": "tsnd src/app.ts"
+    "start": "npx tsc && node dist/app.ts"
   },
   "keywords": [],
   "author": "",
