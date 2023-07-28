@@ -24,7 +24,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest .",
-    "start": "npx tsc && node dist/app.ts"
+    "start": "npx tsc && node dist/src/app.js"
   },
   "keywords": [],
   "author": "",
