@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const patient_controllers_1 = require("../controllers/patient.controllers");
+const auth_middlewares_1 = require("../middlewares/auth.middlewares");
+const patientRouter = (0, express_1.Router)();
+patientRouter.get("/patients", auth_middlewares_1.authMiddlewares, patient_controllers_1.PatientController.findPatients);
+patientRouter.get("/patients/:id", auth_middlewares_1.authMiddlewares, patient_controllers_1.PatientController.finPatientByID);
+patientRouter.get("/patients/timelines/:id", auth_middlewares_1.authMiddlewares, patient_controllers_1.PatientController.findPatientTimelinesService);
+patientRouter.post("/patients/:userId", auth_middlewares_1.authMiddlewares, patient_controllers_1.PatientController.createPatient);
+patientRouter.patch("/patients/:id", auth_middlewares_1.authMiddlewares, patient_controllers_1.PatientController.updatePatient);
+patientRouter.delete("/patients/:id", auth_middlewares_1.authMiddlewares, patient_controllers_1.PatientController.deletePatient);
+exports.default = patientRouter;

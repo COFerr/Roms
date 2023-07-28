@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const timeline_controllers_1 = require("../controllers/timeline.controllers");
+const auth_middlewares_1 = require("../middlewares/auth.middlewares");
+const express_1 = require("express");
+const timelineRouter = (0, express_1.Router)();
+timelineRouter.post("/timelines/:patientId", auth_middlewares_1.authMiddlewares, timeline_controllers_1.timelineController.createTimeline);
+timelineRouter.get("/timelines", auth_middlewares_1.authMiddlewares, timeline_controllers_1.timelineController.findTimelines);
+timelineRouter.delete("/timelines/:id", auth_middlewares_1.authMiddlewares, timeline_controllers_1.timelineController.deleteTimeline);
+timelineRouter.patch("/timelines/:id", auth_middlewares_1.authMiddlewares, timeline_controllers_1.timelineController.updateTimeline);
+exports.default = timelineRouter;
