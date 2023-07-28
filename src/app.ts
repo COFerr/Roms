@@ -21,6 +21,6 @@ app.use(patientRouter)
 app.use(occurrencesRouter)
 app.use(authRouter)
 
-app.listen(process.env.APP_PORT || 3333, () => {
+app.listen(process.env.PORT || 3333, () => {
     console.log("the server is running in port: " + process.env.APP_PORT || 3333)
 });
