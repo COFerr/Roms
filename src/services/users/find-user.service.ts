@@ -6,15 +6,15 @@ export async function findUsersService(filter? : any){
 
         return {
             statusCode: 200,
-            data: users,
-            message: "Users succesfully found!"
+            message: "Users succesfully found!",
+            data: users            
         }
     }
     catch(Error : any){
         return{
             statusCode : Error.message ? 400 : 500,
-            data: null,
-            message: Error.message || "Internal server error"
+            message: Error.message || "Internal server error",
+            data: null
         }
     }
 }

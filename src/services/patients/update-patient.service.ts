@@ -7,7 +7,7 @@ export async function updatePatientService(id: string, payload: any){
 
         return{
             statusCode: 200,
-            message: "Patient found successfully",
+            message: "Patient updated successfully!",
             data: patientUpdated
         }
     }

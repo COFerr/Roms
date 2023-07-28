@@ -5,7 +5,6 @@ import { IPatient } from "../../interfaces/patient.interface";
 export async function createPatientService(payload : IPatient){
     try{
 
-        console.log((JSON.stringify(payload.userId).split('"')[1].length))
         const user = await userRepository.findUserById(JSON.stringify(payload.userId).split('"')[1])
 
         if(!user){
@@ -21,8 +20,8 @@ export async function createPatientService(payload : IPatient){
         user.save()
 
         return{
-            statusCode: 200,
-            message: "Patient succesfully created",
+            statusCode: 201,
+            message: "Patient created successfully!",
             data: newPatient
         }
     }

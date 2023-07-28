@@ -7,7 +7,7 @@ export async function updateTimelineService(id: string, payload: any){
 
         return{
             statusCode: 200,
-            message: "Timeline successfully updated",
+            message: "Timeline successfully updated!",
             data: timelineUpdated
         }
     }

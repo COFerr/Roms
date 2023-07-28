@@ -10,10 +10,10 @@ export async function findTimelineService(){
             data: timelines
         }
     }
-    catch(Error){
+    catch(Error : any){
         return{
-            statusCode: 500,
-            message: "Internal Server Error",
+            statusCode: Error.message ? 400 : 500,
+            message: Error.message || "Internal Server Error",
             data: null
         }
     }

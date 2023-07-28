@@ -9,7 +9,7 @@ export async function createTimelineService(payload : ITimeline, patientId : str
 
         if(!patient){
             return{
-                statusCode : 200,
+                statusCode : 400,
                 message: "Patient not found",
                 data : null
             }
@@ -20,8 +20,8 @@ export async function createTimelineService(payload : ITimeline, patientId : str
         patient.save()
 
         return{
-            statusCode: 200,
-            message: "Timeline created successfully",
+            statusCode: 201,
+            message: "Timeline created successfully!",
             data: timeline
         }
     }

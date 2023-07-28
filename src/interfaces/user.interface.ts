@@ -6,5 +6,5 @@ export interface IUser{
     nickname: string;
     password: string;
     patients: ObjectId[];
-    photo: ObjectId;
+    photo?: ObjectId;
 }

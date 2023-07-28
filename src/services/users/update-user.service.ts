@@ -6,7 +6,7 @@ export async function updateUserService(id: string, payload : any){
 
         return{
             statusCode: 200,
-            message: "User Successfully updated1",
+            message: "User Successfully updated!",
             data: userUpdated
         }
     }

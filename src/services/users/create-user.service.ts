@@ -15,7 +15,7 @@ export async function createUserService(payload: IUser){
         const newUser = await userRepository.create(newUserData);
 
         return{
-            statusCode: 200,
+            statusCode: 201,
             data: newUser,
             message: "User created Sucessfully!"
         }

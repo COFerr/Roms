@@ -6,14 +6,14 @@ export async function findPatientService(){
 
         return{
             statusCode: 200,
-            message: "Patient successfully found",
+            message: "Patients successfully found",
             data: allPatients
         }
     }
     catch(Error : any){
         return{
-            statusCode: 400,
-            message: "Internal server error.",
+            statusCode: Error.message ? 400 : 500,
+            message: Error.message || "Internal server error.",
             data: null
         }
     }
