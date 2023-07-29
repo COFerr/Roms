@@ -2,7 +2,6 @@ import { patientRepository } from "../../database/repositories/patient.repositor
 import { createPatientService } from "./create-patient.service";
 import { IPatient } from "../../interfaces/patient.interface";
 import { ObjectId, Schema } from "mongoose";
-import { IUser } from "../../interfaces/user.interface";
 import { userRepository } from "../../database/repositories/user.repository";
 
 describe("Create patient service test", () => {
