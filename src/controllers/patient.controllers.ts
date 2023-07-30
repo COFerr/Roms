@@ -10,7 +10,7 @@ import { findPatientsTimelinesservice } from "../services/patients/find-patients
 export class PatientController{
     static async createPatient(req:Request, res:Response){
         const payload = req.body
-        console.log("patientController" + payload)
+        console.log("patientController" + JSON.stringify(payload))
         const {userId} = req.params
         const result = await createPatientService({...payload, userId : new ObjectId(userId)})
         const {statusCode, message, data} = result
