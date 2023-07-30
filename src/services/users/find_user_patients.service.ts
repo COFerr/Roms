@@ -1,6 +1,6 @@
 import { userRepository } from "../../database/repositories/user.repository";
 
-export async function findUserPatiensService(id:string) {
+export async function findUserPatiensService(id:string, query?: any) {
     try{
         const user = await userRepository.findUserById(id)
         
@@ -13,6 +13,14 @@ export async function findUserPatiensService(id:string) {
         }
 
         const patients = user.patients
+
+        const page = parseInt(query.page) || 1;
+        const pageSize = parseInt(query.pageSize) || 5;
+
+        const startIndex = (page - 1) * pageSize;
+        const endIndex = page * pageSize;
+
+        const patientsPaginated = patients.slice(startIndex, endIndex);
         
         return{
             statusCode : 200,

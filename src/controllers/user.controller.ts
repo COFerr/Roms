@@ -53,8 +53,9 @@ export class UserController {
 
     static async findUserPatients(req : Request, res : Response){
         const {id} = req.params
+        const page = req.query
 
-        const result = await findUserPatiensService(id)
+        const result = await findUserPatiensService(id, page)
         const{statusCode, message, data} = result
 
         res.status(statusCode).json({

@@ -19,7 +19,7 @@ export async function createTimelineService(payload : ITimeline, patientId : str
         const timeline = await timelineRepository.createTimeline(payload)
         patient.timelines.push(timeline.id)
         patient.save()
-
+        
         return{
             statusCode: 201,
             message: "Timeline created successfully!",

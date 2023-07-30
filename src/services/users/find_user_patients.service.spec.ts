@@ -30,7 +30,7 @@ describe("Testing find user's patients service", () => {
             data : patients
         }
 
-        const response = await findUserPatiensService("64acbc1c65374d8907391968")
+        const response = await findUserPatiensService("64acbc1c65374d8907391968", {page: 1, pageSize : patients.length})
 
         expect(findUsersPatientsMock).toHaveBeenCalled()
         expect(response).toEqual(expectedResponse)        
