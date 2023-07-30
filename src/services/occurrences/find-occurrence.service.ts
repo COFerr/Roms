@@ -6,7 +6,7 @@ export async function findOccurrenceService(){
 
         return{
             statusCode: 200,
-            message: "Occurrences Succesfully found!",
+            message: "Occurrences successfully found!",
             data: allOccurrences
         }
     }

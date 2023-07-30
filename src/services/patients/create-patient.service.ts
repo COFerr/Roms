@@ -6,6 +6,7 @@ export async function createPatientService(payload : IPatient){
     try{
 
         const user = await userRepository.findUserById(JSON.stringify(payload.userId).split('"')[1])
+        console.log("create-patient-service : " + payload)
 
         if(!user){
             return{

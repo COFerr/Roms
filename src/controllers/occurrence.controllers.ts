@@ -7,6 +7,7 @@ import { deleteOccurrenceService } from "../services/occurrences/delete-occurren
 export class OccurrenceController{
     static async createOccurrence(req : Request, res : Response){
         const payload = req.body
+        console.log(payload)
         const {timelineId} = req.params 
 
         const result = await createOccurrenceService(payload, timelineId)

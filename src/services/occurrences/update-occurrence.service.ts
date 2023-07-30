@@ -6,7 +6,7 @@ export async function updateOccurrenceService(id : string, payload: any){
 
         return{
             statusCode: 200,
-            message: "Occurrence Succesfully updated!",
+            message: "Occurrence successfully updated!",
             data: updatedOccurrence
         }
     }

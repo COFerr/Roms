@@ -4,5 +4,5 @@ export interface IOccurrence{
     title: string,
     content: string,
     type: string,
-    files: ObjectId[]
+    files?: ObjectId[]
 }

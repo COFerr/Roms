@@ -6,6 +6,7 @@ import { userRepository } from "../../database/repositories/user.repository";
 export async function longinService(data : {email : string ; password : string}){
     try{
         const user = await userRepository.findUserByEmail(data.email)
+        console.log(user + " " + data.password)
 
         if(!user){
             return{

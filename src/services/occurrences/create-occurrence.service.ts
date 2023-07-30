@@ -20,8 +20,8 @@ export async function createOccurrenceService(payload: IOccurrence, timelineId :
         timeline.save()
 
         return{
-            statusCode: 200,
-            message: "Occurrence create successfully",
+            statusCode: 201,
+            message: "Occurrence created successfully!",
             data: newOccurrence
         }
     }
