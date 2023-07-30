@@ -8,7 +8,7 @@ import { findPatientByIdService } from "../services/patients/find-one-patient.se
 import { findPatientsTimelinesservice } from "../services/patients/find-patients-timelines.service";
 
 export class PatientController{
-    static async createPatient(req:Request, res:Response){
+    static async createPatient(req: Request, res: Response){
         const payload = req.body;
         console.log("patientController : " + JSON.stringify(payload))
         const {userId} = req.params

@@ -4,9 +4,9 @@ import { Router } from "express";
 
 const occurrencesRouter = Router();
 
-occurrencesRouter.post("/occurrences/:timelineId", authMiddlewares, OccurrenceController.createOccurrence);
-occurrencesRouter.get("/occurrences", authMiddlewares, OccurrenceController.findOccurrences);
-occurrencesRouter.patch("/occurrences/:id", authMiddlewares, OccurrenceController.updateOccurrence);
-occurrencesRouter.delete("/occurrences/:id", authMiddlewares, OccurrenceController.deleteOccurrence);
+occurrencesRouter.post("/:timelineId", authMiddlewares, OccurrenceController.createOccurrence);
+occurrencesRouter.get("/", authMiddlewares, OccurrenceController.findOccurrences);
+occurrencesRouter.patch("/:id", authMiddlewares, OccurrenceController.updateOccurrence);
+occurrencesRouter.delete("/:id", authMiddlewares, OccurrenceController.deleteOccurrence);
 
 export default occurrencesRouter;

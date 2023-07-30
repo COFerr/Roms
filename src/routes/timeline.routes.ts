@@ -4,10 +4,10 @@ import { Router } from "express";
 
 const timelineRouter = Router();
 
-timelineRouter.post("/timelines/:patientId", authMiddlewares, timelineController.createTimeline);
-timelineRouter.get("/timelines", authMiddlewares, timelineController.findTimelines);
-timelineRouter.delete("/timelines/:id", authMiddlewares, timelineController.deleteTimeline);
-timelineRouter.patch("/timelines/:id", authMiddlewares, timelineController.updateTimeline);
+timelineRouter.post("/:patientId", authMiddlewares, timelineController.createTimeline);
+timelineRouter.get("/", authMiddlewares, timelineController.findTimelines);
+timelineRouter.delete("/:id", authMiddlewares, timelineController.deleteTimeline);
+timelineRouter.patch("/:id", authMiddlewares, timelineController.updateTimeline);
 
 export default timelineRouter;
 
