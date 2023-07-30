@@ -4,7 +4,7 @@ import { authMiddlewares } from "../middlewares/auth.middlewares";
 
 const userRouter = Router()
 
-//userRouter.get("/", authMiddlewares, UserController.findUSers);
+userRouter.get("/", authMiddlewares, UserController.findUSers);
 userRouter.post("/", UserController.createUser);
 userRouter.patch("/:id", authMiddlewares, UserController.updateUser)
 userRouter.delete("/:id", authMiddlewares, UserController.deleteUser)
