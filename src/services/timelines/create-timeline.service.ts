@@ -1,5 +1,6 @@
 import { timelineRepository } from "../../database/repositories/timeline.repository";
 import { patientRepository } from "../../database/repositories/patient.repository";
+import { userRepository } from "../../database/repositories/user.repository";
 import { ITimeline } from "../../interfaces/timeline.interface";
 
 export async function createTimelineService(payload : ITimeline, patientId : string){

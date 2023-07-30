@@ -10,7 +10,6 @@ export class UserController {
 
         const payload = req.body;
 
-        console.log("user controler : " + JSON.stringify(payload))
         const result = await createUserService(payload)
 
         const { statusCode, message, data } = result;
