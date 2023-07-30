@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { createUserService } from "../services/users/create-user.service";
-import { findUsersService } from "../services/users/find-user.service";
+import { findUsersByEmailService } from "../services/users/find-user.service";
 import { updateUserService } from "../services/users/update-user.service";
 import { deleteUSerService } from "../services/users/delete-user.service";
 import { findUserPatiensService } from "../services/users/find_user_patients.service";
@@ -22,8 +22,8 @@ export class UserController {
 
     static async findUSers(req: Request, res: Response) {
 
-        const filter = req.query;
-        const result = await findUsersService(filter);
+        const {email} = req.body;
+        const result = await findUsersByEmailService(email);
         const { statusCode, message, data } = result;
         res.status(statusCode).json({
             message,
