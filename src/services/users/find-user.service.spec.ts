@@ -1,28 +1,25 @@
 import { userRepository } from "../../database/repositories/user.repository";
-import { findUsersService } from "./find-user.service";
+import { findUsersByEmailService } from "./find-user.service";
 
-describe("Testing find users service", () => {
+describe("Testing find user by email service", () => {
     afterEach(() => {
         jest.resetAllMocks();
     })
 
     it("Should get all users", async () => {
-        const users = {
-            user_1 : {name: "chris", email: "chris@test.com", nickname: "chris&greg", password: "123456"},
-            user_2 : {name: "greg", email: "greg@test.com", nickname: "chris&greg", password: "123456"}
-        }
+        const user = {name: "chris", email: "chris@test.com", nickname: "chris&greg", password: "123456"}
+        
+        const findMock = jest.fn().mockResolvedValue(user)
 
-        const findMock = jest.fn().mockResolvedValue(users)
-
-        userRepository.findUsers = findMock
+        userRepository.findUserByEmail = findMock
 
         const expectedResponse = {
             statusCode: 200,
             message: "Users succesfully found!",
-            data: users
+            data: user
         }
 
-        const response = await findUsersService()
+        const response = await findUsersByEmailService(user.email)
 
         expect(findMock).toHaveBeenCalled()
         expect(response).toEqual(expectedResponse)        
@@ -31,8 +28,10 @@ describe("Testing find users service", () => {
     it("handle error test", async () => {
         const errorMessage = "Error for the test"
 
+        const email = "chris@test.com"
+
         const errorFindMock = jest.fn().mockRejectedValue(new Error(errorMessage))
-        userRepository.findUsers = errorFindMock;
+        userRepository.findUserByEmail = errorFindMock;
 
         const expectedResponse = {
                 statusCode : 400,
@@ -40,7 +39,7 @@ describe("Testing find users service", () => {
                 data: null
         }
 
-        const response = await findUsersService();
+        const response = await findUsersByEmailService(email);
         expect(response).toEqual(expectedResponse);
         expect(errorFindMock).toHaveBeenCalled();
     })

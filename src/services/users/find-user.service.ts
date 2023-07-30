@@ -1,8 +1,8 @@
 import { userRepository } from "../../database/repositories/user.repository";
 
-export async function findUsersService(filter? : any){
+export async function findUsersByEmailService(email : string){
     try{
-        const users  = await userRepository.findUsers(filter)
+        const users  = await userRepository.findUserByEmail(email)
 
         return {
             statusCode: 200,

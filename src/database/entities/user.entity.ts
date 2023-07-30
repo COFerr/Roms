@@ -8,7 +8,7 @@ const userSchema: Schema = new Schema(
         name: { type: String, required: true, minlenght: 3 },
         email: { type: String, required: true, minlength: 10, unique: true },
         nickname: { type: String, required: true, minlength: 3, unique: false },
-        password: { type: String, required: true, minlength: 8, select: false },
+        password: { type: String, required: true, minlength: 8, select : true},
         patients: [
             {type : Schema.Types.ObjectId, ref : "Patient" }
         ],
