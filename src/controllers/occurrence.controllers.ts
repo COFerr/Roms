@@ -3,14 +3,19 @@ import { createOccurrenceService } from "../services/occurrences/create-occurren
 import { updateOccurrenceService } from "../services/occurrences/update-occurrence.service";
 import { findOccurrenceService } from "../services/occurrences/find-occurrence.service";
 import { deleteOccurrenceService } from "../services/occurrences/delete-occurrence.service";
+import { createFileService } from "../services/file/create-file.service";
 
 export class OccurrenceController{
     static async createOccurrence(req : Request, res : Response){
         const payload = req.body
-        console.log(payload)
-        const {timelineId} = req.params 
-
-        const result = await createOccurrenceService(payload, timelineId)
+        const {timelineId} = req.params
+        const file = {
+            fileName : req.file?.filename,
+            mimeType : req.file?.mimetype
+        }
+        
+        const fileCreated = await createFileService(file)
+        const result = await createOccurrenceService({...payload, files : [fileCreated.data?._id]}, timelineId)
         const { statusCode, message, data } = result
 
         res.status(statusCode).json({
