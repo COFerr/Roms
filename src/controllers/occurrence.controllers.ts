@@ -13,9 +13,9 @@ export class OccurrenceController{
             fileName : req.file?.filename,
             mimeType : req.file?.mimetype
         }
-        
-        const fileCreated = await createFileService(file)
-        const result = await createOccurrenceService({...payload, files : [fileCreated.data?._id]}, timelineId)
+        let fileCreated
+        if(file){fileCreated = await createFileService(file)}
+        const result = await createOccurrenceService({...payload, files : [fileCreated?.data?._id]}, timelineId)
         const { statusCode, message, data } = result
 
         res.status(statusCode).json({
