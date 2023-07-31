@@ -3,6 +3,7 @@ import { createTimelineService } from "../services/timelines/create-timeline.ser
 import { deleteTimelineService } from "../services/timelines/delete-timeline.service";
 import { updateTimelineService } from "../services/timelines/update-timeline.service";
 import { findTimelineService } from "../services/timelines/find-timeline.service";
+import { findTimelineByIdService } from "../services/timelines/find-timeline-by-id.service";
 
 export class timelineController{
     static async createTimeline(req : Request, res : Response){
@@ -43,6 +44,16 @@ export class timelineController{
     static async findTimelines(req: Request, res : Response){
         const {id} = req.params
         const result = await findTimelineService(id)
+        const {statusCode, message, data} = result
+
+        res.status(statusCode).json({
+            message,
+            data
+        })
+    }
+    static async findTimelineByID(req: Request, res : Response){
+        const {id} = req.params
+        const result = await findTimelineByIdService(id)
         const {statusCode, message, data} = result
 
         res.status(statusCode).json({

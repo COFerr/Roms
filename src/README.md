@@ -38,14 +38,15 @@ Application
             method: patch, path: "/patients/patientId" - update a patient by it's _id. - private
             method: delete, path: "/patients/:patientId" - delete a patient by it's _id. - private
         timlines
-            method: post, path: "/" - create a new user - private
-            method: get, path: "/" - get user by email - private
-            method: path, path: "/:userId" - update an user by it's _id - private
-            method: get, path: "/userPatients/:userId" - get all patients of an user. - private
-            method: delete, path: "/userId" - delete an user by it's id. - private
+            method: post, path: "/timelines/:patientId" - create a new timeline for a patient - private
+            method: patch, path: "/timelines/timelineId" - update a timeline by it's _id - private
+            method: get, path: "/timelines/occurrences/:timelineId" - get all occurrences of a timeline. - private
+            method: get, path: "/timelines/:timelineId" - get timeline by it's _id. - private
+            method: delete, path: "/timelines/:timelineId" - delete a timeline by it's _id. - private
         occurrences
-            method: post, path: "/" - create a new user - private
-            method: get, path: "/" - get user by email - private
-            method: path, path: "/:userId" - update an user by it's _id - private
-            method: get, path: "/userPatients/:userId" - get all patients of an user. - private
-            method: delete, path: "/userId" - delete an user by it's id. - private
+            method: post, path: "/occurrences/:timelineId" - create a new occurrence in a timeline - private
+            method: get, path: "/occurences" - get all occurrences - private
+            method: patch, path: "/occurrences/:occurrenceId" - update an occurrence by it's _id - private
+            method: delete, path: "/occurrences/occurenceId" - delete an occurrence by it's _id. - private
+Tests
+    There are integration tests for the services, minus the delete one's and the get timeline by id one.

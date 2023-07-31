@@ -6,6 +6,7 @@ const timelineRouter = Router();
 
 timelineRouter.post("/:patientId", authMiddlewares, timelineController.createTimeline);
 timelineRouter.get("/occurrences/:timelineId", authMiddlewares, timelineController.findTimelines);
+timelineRouter.get("/:timelineId", authMiddlewares, timelineController.findTimelineByID);
 timelineRouter.delete("/:id", authMiddlewares, timelineController.deleteTimeline);
 timelineRouter.patch("/:id", authMiddlewares, timelineController.updateTimeline);
 
