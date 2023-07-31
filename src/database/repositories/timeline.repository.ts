@@ -16,7 +16,7 @@ class TimelineRepository{
         return await Timeline.find();
     }
     async findTimelineById(id : string){
-        return await Timeline.findById(id)
+        return await Timeline.findById(id).populate('occurrences')
     }
 }
 

@@ -1,15 +1,19 @@
 import { timelineRepository } from "../../database/repositories/timeline.repository";
 
-export async function findTimelineService(){
+export async function findTimelineService(id : string){
     try{
-        const timelines = await timelineRepository.findTimelines();
+        
+        const timelines = await timelineRepository.findTimelineById(id);
+
+        const occurences = timelines?.occurrences
 
         return{
             statusCode: 200,
-            message: "Timelines successfully found",
-            data: timelines
+            message: "Timeline successfully found",
+            data: occurences
         }
     }
+
     catch(Error : any){
         return{
             statusCode: Error.message ? 400 : 500,

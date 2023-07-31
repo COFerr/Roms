@@ -5,7 +5,7 @@ import { Router } from "express";
 const timelineRouter = Router();
 
 timelineRouter.post("/:patientId", authMiddlewares, timelineController.createTimeline);
-timelineRouter.get("/", authMiddlewares, timelineController.findTimelines);
+timelineRouter.get("/occurrences/:timelineId", authMiddlewares, timelineController.findTimelines);
 timelineRouter.delete("/:id", authMiddlewares, timelineController.deleteTimeline);
 timelineRouter.patch("/:id", authMiddlewares, timelineController.updateTimeline);
 
