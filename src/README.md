@@ -49,4 +49,4 @@ Application
             method: patch, path: "/occurrences/:occurrenceId" - update an occurrence by it's _id - private
             method: delete, path: "/occurrences/occurenceId" - delete an occurrence by it's _id. - private
 Tests
-    There are integration tests for the services, minus the delete one's and the get timeline by id one.
+    There are integration tests for the services, minus the delete one's.
