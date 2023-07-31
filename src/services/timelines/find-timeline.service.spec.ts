@@ -19,7 +19,7 @@ describe("Testing find timeline service", () => {
 
         const expectedResponse = {
             statusCode: 200,
-            message: "Timeline successfully found",
+            message: "Occurrences successfully found",
             data: timelines.occurrences
         }
 

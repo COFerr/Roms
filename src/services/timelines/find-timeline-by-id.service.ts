@@ -4,8 +4,6 @@ export async function findTimelineByIdService(id : string){
     try{
         
         const timelines = await timelineRepository.findTimelineById(id);
-        console.log(id)
-        console.log(timelines)
 
         return{
             statusCode: 200,

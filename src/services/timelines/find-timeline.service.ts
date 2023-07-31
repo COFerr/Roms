@@ -9,8 +9,8 @@ export async function findTimelineService(id : string){
 
         return{
             statusCode: 200,
-            message: "Timeline successfully found",
-            data: occurences
+            message: "Occurrences successfully found",
+            data: timelines?.occurrences
         }
     }
 

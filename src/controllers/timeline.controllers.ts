@@ -42,8 +42,8 @@ export class timelineController{
         })
     }
     static async findTimelines(req: Request, res : Response){
-        const {id} = req.params
-        const result = await findTimelineService(id)
+        const {timelineId} = req.params
+        const result = await findTimelineService(timelineId)
         const {statusCode, message, data} = result
 
         res.status(statusCode).json({
@@ -52,8 +52,8 @@ export class timelineController{
         })
     }
     static async findTimelineByID(req: Request, res : Response){
-        const {id} = req.params
-        const result = await findTimelineByIdService(id)
+        const {timelineId} = req.params
+        const result = await findTimelineByIdService(timelineId)
         const {statusCode, message, data} = result
 
         res.status(statusCode).json({
