@@ -8,11 +8,13 @@ import { createFileService } from "../services/file/create-file.service";
 export class OccurrenceController{
     static async createOccurrence(req : Request, res : Response){
         const payload = req.body
+        console.log(payload)
         const {timelineId} = req.params
         const file = {
             fileName : req.file?.filename,
             mimeType : req.file?.mimetype
         }
+        console.log(file)
         let fileCreated
         if(file){fileCreated = await createFileService(file)}
         const result = await createOccurrenceService({...payload, files : [fileCreated?.data?._id]}, timelineId)
