@@ -62,10 +62,8 @@ export class PatientController{
     }
     static async findPatientTimelinesService(req : Request, res : Response){
         const {id} = req.params
-        console.log(id)
 
         const timelines = await findPatientsTimelinesservice(id)
-        console.log(timelines)
         const {statusCode, message, data} = timelines
 
         res.status(statusCode).json({
