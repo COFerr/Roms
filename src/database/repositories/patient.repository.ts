@@ -17,7 +17,7 @@ class PatientRepository{
         return await Patient.find()
     }
     async findPatientByID(id : string){
-        return await  Patient.findById(id).populate("timelines")
+        return await  Patient.findById(new ObjectId(id)).populate("timelines")
     }
 }
 
